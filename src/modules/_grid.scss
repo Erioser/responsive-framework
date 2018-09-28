@@ -1,0 +1,72 @@
+
+
+.gp8-wrap, .gp8-wrap-f { 
+    width: 100%;
+    margin: 0 auto;
+}
+//  算宽度和边距的
+@function compute ($i, $num) {
+    @return $i / $num * 100%;
+}
+// 栅格化
+@mixin grid ($type) {
+    @for $i from 0 to ($column-number + 1) {
+        .gp8-#{$type}-#{$i}{
+            float: left;
+            width: compute($i, $column-number);
+        }
+        .gp8-#{$type}-offset-#{$i}{
+            margin-left: compute($i, $column-number);
+        }
+    }
+}
+// 算到底是显示还是隐藏的
+@function show ($type, $base, $case, $case2) {
+    @if ($type == $base) {
+        @return $case;
+    }
+    @else {
+        @return $case2;
+    }
+}
+// 控制显示和隐藏类名
+@mixin visible  ($type) {
+    .show-xs { display: show($type, xs, block, none); }
+    .show-md { display: show($type, md, block, none); }
+    .show-lg { display: show($type, lg, block, none);  }
+
+    .hide-xs { display: show($type, xs, none, block); }
+    .hide-md { display: show($type, md, none, block); }
+    .hide-lg { display: show($type, lg, none, block); }
+}
+
+
+// 小屏 
+
+
+@include grid(xs);
+
+@include visible(xs);
+
+
+
+
+// 中屏
+@media screen and ( min-width: $key-one ) {
+    .gp8-wrap {
+        width: $key-one;
+    }
+    @include grid(md);
+    @include visible(md);
+}
+
+// 大屏
+@media screen and ( min-width: $key-two ) {
+    .gp8-wrap {
+        width: $key-two;
+    }
+    @include grid(lg);
+    @include visible(lg);
+    
+
+}

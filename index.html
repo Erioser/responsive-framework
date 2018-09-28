@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/gp8.css">
+</head>
+<style>
+    .wrapper {  margin-bottom: 20px; border: 1px solid red; }
+    .demo { height: 100px; border: 1px solid #333; }
+</style>
+<body>
+     <!-- 992 -> -->
+     <header class="header pc show-lg ">PC header</header>
+     <!-- 768->992 -->
+     <header class="header pad  show-md">PAD header</header>
+     <!-- 0->768 -->
+     <header class="header mobile show-xs">MOBILE header</header>
+
+
+    <div class="gp8-wrap wrapper"></div>
+    <div class="gp8-wrap-f wrapper">
+        <div class="row">
+            <div class="demo gp8-xs-12  gp8-md-6  gp8-lg-3"></div>
+            <div class="demo gp8-xs-12  gp8-md-6  gp8-lg-3"></div>
+            <div class="demo gp8-xs-12  gp8-md-6  gp8-lg-3"></div>
+            <div class="demo gp8-xs-12  gp8-md-6  gp8-lg-3"></div>
+        </div>
+        <div class="row">
+            <div class="demo  gp8-xs-6  gp8-xs-offset-3  gp8-md-offset-0"></div>
+        </div>
+    </div>
+
+    <p class="hide-xs">哈哈哈哈</p>
+
+</body>
+</html>
